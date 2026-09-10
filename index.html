@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <title>반려동물 자가진단기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <nav class="topbar" aria-label="주요 메뉴">
+        <a class="brand" href="./index.html" aria-label="반려동물 자가진단기 홈">
+          <span class="brand-mark">+</span>
+          <span>pet / care</span>
+        </a>
+        <span class="nav-note">AI HEALTH COMPANION <span class="status-dot"></span></span>
+      </nav>
+
+      <section class="intro" id="intro-panel" aria-labelledby="page-title">
+        <div class="eyebrow"><span>01</span> START WITH THE BASICS</div>
+        <h1 id="page-title">반려동물<br /><em>자가진단기</em></h1>
+        <p class="intro-copy">반려동물에 대해 알려주시면<br />더 정확한 건강 체크를 시작할 수 있어요.</p>
+        <div class="decorative-line" aria-hidden="true"><span></span><span></span><span></span></div>
+      </section>
+
+      <section class="form-card first-step" id="first-step" aria-label="반려동물 종과 품종 입력">
+        <div class="card-heading">
+          <div>
+            <span class="section-number">01 / 05</span>
+            <h2>어떤 친구인가요?</h2>
+          </div>
+          <span class="paw" aria-hidden="true">✦</span>
+        </div>
+
+        <div class="field-group">
+          <label for="species">종 <span>SPECIES</span></label>
+          <div class="select-wrap">
+            <select id="species">
+              <option value="">종을 선택해주세요</option>
+              <option value="강아지">강아지</option>
+              <option value="고양이">고양이</option>
+              <option value="거북이">거북이</option>
+              <option value="토끼">토끼</option>
+              <option value="햄스터">햄스터</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group breed-field" id="breed-group" hidden>
+          <label for="breed">품종 <span id="breed-label">BREED</span></label>
+          <div class="select-wrap" id="breed-select-wrap">
+            <select id="breed" disabled>
+              <option value="">종을 먼저 선택해주세요</option>
+            </select>
+          </div>
+          <div class="other-input-wrap" id="other-input-wrap" hidden>
+            <input id="other-breed" type="text" placeholder="품종을 직접 입력해주세요" autocomplete="off" />
+          </div>
+          <p class="field-hint" id="field-hint">가장 흔한 품종을 모아두었어요.</p>
+        </div>
+
+        <button class="continue-button" id="continue-button" type="button" disabled>
+          <span>다음 단계로</span><span class="button-arrow">↗</span>
+        </button>
+        <p class="privacy-note"><span>●</span> 입력하신 정보는 진단을 위해서만 사용돼요.</p>
+      </section>
+
+      <section class="form-card second-step" id="second-step" aria-label="반려동물 기본 정보 입력" hidden>
+        <div class="card-heading">
+          <div>
+            <span class="section-number">02 / 05</span>
+            <h2>기본 정보를 알려주세요</h2>
+          </div>
+          <span class="paw" aria-hidden="true">✦</span>
+        </div>
+
+        <div class="selected-pet" id="selected-pet" aria-live="polite"></div>
+
+        <div class="form-grid">
+          <div class="field-group full-field">
+            <label for="pet-name">반려동물 이름 <span>NAME</span></label>
+            <input id="pet-name" type="text" placeholder="이름을 입력해주세요" autocomplete="off" />
+          </div>
+          <div class="field-group">
+            <label for="pet-age">나이 <span>AGE</span></label>
+            <div class="input-unit"><input id="pet-age" type="number" min="0" max="100" placeholder="예: 4" /><span>살</span></div>
+          </div>
+          <div class="field-group">
+            <label for="pet-weight">몸무게 <span>WEIGHT</span></label>
+            <div class="input-unit"><input id="pet-weight" type="number" min="0" step="0.1" placeholder="예: 4.5" /><span>kg</span></div>
+          </div>
+          <div class="field-group">
+            <label for="pet-sex">성별 <span>SEX</span></label>
+            <div class="select-wrap"><select id="pet-sex"><option value="">선택해주세요</option><option>수컷</option><option>암컷</option></select></div>
+          </div>
+          <div class="field-group">
+            <label for="neutered">중성화 여부 <span>STATUS</span></label>
+            <div class="select-wrap"><select id="neutered"><option value="">선택해주세요</option><option>했어요</option><option>하지 않았어요</option><option>잘 모르겠어요</option></select></div>
+          </div>
+          <div class="field-group full-field">
+            <label for="living-space">주 생활 환경 <span>LIFESTYLE</span></label>
+            <div class="select-wrap"><select id="living-space"><option value="">선택해주세요</option><option>실내 생활</option><option>실내·외 생활</option><option>야외 생활</option></select></div>
+          </div>
+        </div>
+
+        <div class="vaccine-section">
+          <div class="subheading"><div><span class="section-number">CHECKLIST</span><h3>예방접종 기록</h3></div><span id="vaccine-progress">0 / 0</span></div>
+          <p class="section-description">올해 필요한 예방접종을 확인하고, 진행한 항목을 체크해주세요.</p>
+          <div class="vaccine-list" id="vaccine-list"></div>
+        </div>
+
+        <div class="field-group full-field">
+          <label for="health-history">고질병·과거 병력 <span>HEALTH HISTORY</span></label>
+          <textarea id="health-history" rows="3" placeholder="진단받은 질환이나 수술 이력이 있다면 적어주세요. 없다면 '없음'이라고 적어주세요."></textarea>
+        </div>
+        <div class="field-group full-field">
+          <label for="medications">복용 중인 약·알레르기 <span>MEDICATIONS</span></label>
+          <textarea id="medications" rows="3" placeholder="복용 중인 약이나 음식·약물 알레르기가 있다면 적어주세요."></textarea>
+        </div>
+        <div class="field-group full-field">
+          <label for="vet-visit">최근 동물병원 방문 <span>LAST VISIT</span></label>
+          <input id="vet-visit" type="date" />
+        </div>
+
+        <div class="step-actions">
+          <button class="back-button" id="back-button" type="button">← 이전</button>
+          <button class="continue-button" id="finish-button" type="button"><span>기본 정보 저장하기</span><span class="button-arrow">↗</span></button>
+        </div>
+        <p class="form-error" id="basic-error" role="alert" hidden></p>
+        <p class="privacy-note"><span>●</span> 입력하신 정보는 진단을 위해서만 사용돼요.</p>
+      </section>
+
+      <section class="form-card third-step" id="third-step" aria-label="현재 증상 입력" hidden>
+        <div class="card-heading">
+          <div>
+            <span class="section-number">03 / 05</span>
+            <h2>지금 어떤 점이<br />걱정되나요?</h2>
+          </div>
+          <span class="paw" aria-hidden="true">✦</span>
+        </div>
+
+        <div class="selected-pet" id="symptom-pet" aria-live="polite"></div>
+        <div class="field-group full-field">
+          <label for="symptom-description">현재 문제 상황 <span>SYMPTOMS</span></label>
+          <textarea id="symptom-description" rows="5" placeholder="언제부터, 어떤 증상이 나타났는지 자유롭게 적어주세요. 예: 어제부터 밥을 잘 먹지 않고 자주 누워 있어요."></textarea>
+        </div>
+
+        <div class="symptom-section">
+          <div class="subheading"><div><span class="section-number">QUICK CHECK</span><h3>해당되는 증상이 있나요?</h3></div><span id="symptom-progress">0개 선택</span></div>
+          <p class="section-description">현재 보이는 증상을 모두 골라주세요. 여러 개를 선택할 수 있어요.</p>
+          <div class="symptom-list">
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="식욕 저하" /><span>식욕이 줄었어요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="구토" /><span>구토를 해요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="설사" /><span>설사를 해요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="기침·재채기" /><span>기침이나 재채기를 해요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="피부 이상" /><span>피부를 긁거나 붉어졌어요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="절뚝거림" /><span>절뚝거리거나 움직임이 달라요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="호흡 곤란" /><span>호흡이 평소와 달라요</span></label>
+            <label class="symptom-item"><input type="checkbox" name="symptom" value="이상 행동" /><span>평소와 다른 행동을 해요</span></label>
+          </div>
+        </div>
+
+        <div class="media-section">
+          <div class="subheading"><div><span class="section-number">OPTIONAL</span><h3>사진이나 영상을 첨부해주세요</h3></div><span>MAX 5 FILES</span></div>
+          <p class="section-description">구토, 설사, 피부 상태처럼 글로 설명하기 어려운 증상은 사진이나 영상이 도움이 돼요.</p>
+          <label class="upload-box" for="media-upload">
+            <span class="upload-icon">＋</span>
+            <span><strong>파일을 선택해주세요</strong><small>사진 또는 영상 · 최대 5개</small></span>
+            <input id="media-upload" type="file" accept="image/*,video/*" multiple />
+          </label>
+          <div class="media-preview" id="media-preview"></div>
+        </div>
+
+        <div class="step-actions">
+          <button class="back-button" id="symptom-back-button" type="button">← 이전</button>
+          <button class="continue-button" id="symptom-finish-button" type="button"><span>증상 기록 저장하기</span><span class="button-arrow">↗</span></button>
+        </div>
+        <p class="form-error" id="symptom-error" role="alert" hidden></p>
+        <p class="privacy-note"><span>●</span> 첨부한 파일과 입력하신 정보는 진단을 위해서만 사용돼요.</p>
+      </section>
+
+      <section class="form-card fourth-step" id="fourth-step" aria-label="추가 증상 질문" hidden>
+        <div class="card-heading">
+          <div>
+            <span class="section-number">04 / 05</span>
+            <h2>몇 가지만 더<br />확인할게요</h2>
+          </div>
+          <span class="paw" aria-hidden="true">✦</span>
+        </div>
+        <div class="selected-pet" id="question-pet" aria-live="polite"></div>
+        <p class="question-intro">앞서 입력해주신 내용을 바탕으로 추가 질문을 준비했어요.<br />답변을 참고해 더 정확한 건강 확인을 도와드릴게요. <span id="question-status" aria-live="polite"></span></p>
+        <div class="question-progress-row"><span class="section-number">FOLLOW-UP QUESTIONS</span><strong id="question-progress">0 / 0 답변</strong></div>
+        <div class="question-list" id="question-list"></div>
+        <div class="step-actions">
+          <button class="back-button" id="question-back-button" type="button">← 이전</button>
+          <button class="continue-button" id="question-finish-button" type="button"><span>답변 제출하기</span><span class="button-arrow">↗</span></button>
+        </div>
+        <p class="privacy-note"><span>●</span> 답변은 반려동물의 상태를 확인하는 데만 사용돼요.</p>
+      </section>
+
+      <section class="form-card fifth-step" id="fifth-step" aria-label="AI 건강 분석 결과" hidden>
+        <div class="card-heading">
+          <div>
+            <span class="section-number">05 / 05</span>
+            <h2>AI 건강<br />분석 결과</h2>
+          </div>
+          <span class="paw" aria-hidden="true">✦</span>
+        </div>
+        <div class="selected-pet" id="result-pet" aria-live="polite"></div>
+        <div class="result-loading" id="result-loading">답변을 분석하고 있어요...</div>
+        <div class="result-content" id="result-content" hidden>
+          <div class="result-alert" id="result-alert"></div>
+          <div class="result-section"><span class="section-number">SUMMARY</span><h3>현재 상황 요약</h3><p id="result-summary"></p></div>
+          <div class="result-section"><span class="section-number">ASSESSMENT</span><h3>의심되는 상태</h3><div id="result-conditions"></div></div>
+          <div class="result-section"><span class="section-number">RECOMMENDATION</span><h3>지금 취할 조치</h3><ul class="result-list" id="result-actions"></ul></div>
+          <div class="result-section"><span class="section-number">RED FLAGS</span><h3>이상이 생기면 바로 병원으로</h3><ul class="result-list" id="result-red-flags"></ul></div>
+          <div class="result-section"><span class="section-number">MONITORING</span><h3>집에서 관찰할 항목</h3><ul class="result-list" id="result-monitoring"></ul></div>
+          <div class="result-section"><span class="section-number">VETERINARY CARE</span><h3>병원 방문 권고</h3><p id="result-vet"></p></div>
+          <div class="result-section"><span class="section-number">VET PREPARATION</span><h3>병원 방문 전 준비</h3><ul class="result-list" id="result-vet-preparation"></ul></div>
+          <div class="uncertain-panel" id="uncertain-panel" hidden>
+            <div class="subheading"><div><span class="section-number">MORE INFORMATION NEEDED</span><h3>조금 더 확인할게요</h3></div></div>
+            <p class="section-description">현재 정보만으로는 판단이 어려워 추가 답변이나 사진·영상이 필요해요.</p>
+            <div class="question-list" id="more-question-list"></div>
+            <div class="media-request" id="media-request" hidden>
+              <p class="media-request-copy" id="media-request-copy"></p>
+              <label class="upload-box" for="more-media-upload">
+              <span class="upload-icon">＋</span>
+                <span><strong id="media-upload-label">파일을 선택해주세요</strong><small>사진 또는 영상 · 최대 5개</small></span>
+                <input id="more-media-upload" type="file" accept="image/*,video/*" multiple />
+              </label>
+              <label class="no-media-option"><input id="no-more-media" type="checkbox" /> <span>해당 사진이나 영상이 없어요</span></label>
+              <div class="media-preview" id="more-media-preview"></div>
+            </div>
+            <button class="continue-button reanalyze-button" id="reanalyze-button" type="button"><span>추가 정보로 다시 분석하기</span><span class="button-arrow">↗</span></button>
+          </div>
+        </div>
+        <button class="continue-button result-button" id="new-assessment-button" type="button" hidden><span>새로운 자가진단 시작하기</span><span class="button-arrow">↗</span></button>
+        <p class="privacy-note"><span>●</span> 이 결과는 참고용이며 정확한 진단은 수의사의 진료가 필요해요.</p>
+      </section>
+
+      <footer class="footer"><span>PERSONALIZED CARE, STARTS HERE.</span><span>© 2024 PET/CARE</span></footer>
+    </main>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
